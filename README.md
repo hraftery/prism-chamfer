@@ -2,15 +2,15 @@
 
 > The missing chamfer tool for OpenSCAD
 
-Add chamfers to your OpenSCAD models. Any edge you can model as part of a prism you can chamfer easily. Any edge you can't, you can probably still chamfer, but it might get awkward.
+Add chamfers to your OpenSCAD models. Any edge you can model as part of a prism, you can chamfer easily. Any edge you can't, might be a bit harder.
 
 ![demo](media/demo.png)
 
 ## What?
 
-This is a library for use in [OpenSCAD](https://openscad.org/index.html). It makes it easy to chamfer edges of a prism. A chamfer, also called a bevel, is a smooth slope that cuts off a 90° edge. A prism is a 3D body with a continuous cross-section. In OpenSCAD you create prisms by applying a `linear_extrude` to a `polygon`. Although OpenSCAD allows others ways to form solids, this pattern of drawing a 2D shape (a polygon) and "extruding" it is the predominant 3D modelling technique in many popular 3D CAD tools.
+This is a library for use in [OpenSCAD](https://openscad.org/index.html). It makes it easy to chamfer edges of a prism. A chamfer, also called a bevel, is a smooth slope that cuts off a 90° edge. A prism is a 3D body with a continuous cross-section. In OpenSCAD you create prisms by applying a `linear_extrude` to a `polygon`. Although OpenSCAD provides other ways to form solids, this technique of drawing a 2D shape (a polygon) and "extruding" it is  common in many 3D CAD tools.
 
-So for the price of modelling your designs in the common "extrude a sketch" fashion, you get the ability to chamfer any combination of the resulting edges. More importantly, you can do so without concerning yourself with the geometric details of the edges - you just need the points of your polygon.
+So for the price of modelling your designs in the "extrude a sketch" fashion, you get the ability to chamfer any combination of the resulting edges. More importantly, you can do so without concerning yourself with the geometric details of the edges - you just need the points of your polygon.
 
 
 ## Gallery
@@ -32,7 +32,7 @@ You can also save the trouble of downloading anything, and just head straight to
  
 [https://www.thingiverse.com/apps/customizer/run?thing_id=6150590](https://www.thingiverse.com/apps/customizer/run?thing_id=6150590)
 
-You'll need an account, and it's a bit janky, but it might make a handy preview.
+You'll need an account, and the interface is a bit janky, but it's a handy preview.
 
 ![Demo](media/thingiverse.png)
 
@@ -112,7 +112,7 @@ About 30 seconds in I realised the all important chamfers that guide the tapes i
 
 I started playing with the masks in [BOSL](https://github.com/revarbat/BOSL/wiki/masks.scad#fillet) and [corner-tools](https://www.myminifactory.com/object/3d-print-tools-for-fillets-and-chamfers-on-edges-and-corners-straight-and-or-round-45862), and my fears were allayed - if only I could position the masks right, chamfers would come my way. But surely there's a better way to position and size the masks than painstakingly calculating the geometry of every edge? If only there was some sort of... programmable CAD tool... then I could free my feeble mind from the arithmetic and let the computer do the chores!
 
-And so it began. With my grand sum of OpenSCAD experience consisting of doing the cars in the beginner's tutorial, I embarked on a chamfer library. Pretty soon I realised even the masks in `BOSL` and `corner-tools` weren't going to cut the mustard, so a wrapper that just does the positioning was out. Fortunately, modelling the masks is the easy part, and as a bonus the library is self-contained.
+And so it began. With my grand sum of OpenSCAD experience consisting of doing the cars in the beginner's tutorial, I embarked on a chamfer library. Pretty soon I realised even the masks in `BOSL` and `corner-tools` weren't going to cut the mustard, so a wrapper that just does the positioning was out. Fortunately, modelling the masks is the easy part, and as a bonus the library becomes self-contained.
 
 Getting the abstraction right was a journey, and lots of code hit the cutting room floor. I even tripped and fell into developing some fairly novel (in the can't-find-it-on-Google sense) [geometry algorithms](https://math.stackexchange.com/questions/3549762/trig-is-there-a-formula-that-finds-middle-between-two-angles-with-non-right-tri/4750179#4750179) to get the job done. In the end, I'm shocked its only 150 lines and pleasantly surprised I was able to boil it down to a single interface. Hopefully the value density is high, and it can be widely used as a generic chamfering tool.
 
